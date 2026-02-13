@@ -96,42 +96,15 @@
             70% { transform: scale(1.15); }
             100% { transform: scale(1); }
         }
-    </style>
-</head>
-<body>
 
-    <!-- PANTALLA 1 -->
-    <div id="pantalla1" class="pantalla activa">
-        <h1>¿Quieres volver a pasar este 14 de febrero conmigo? ❤️</h1>
-
-        <div class="botones">
-            <button class="btn yes" id="yesBtn" onclick="mostrarPantalla2()">Sí</button>
-            <button class="btn no" id="noBtn">No</button>
-        </div>
-    </div>
-
-    <!-- PANTALLA 2 -->
-    <div id="pantalla2" class="pantalla">
-        <h1>Espero que lo pasemos bien, sin que nada malo ocurra.<br>
-        Gracias por seguir aquí otro año más conmigo ❤️</h1>
-    </div>
-
-    <script>
-        // BOTÓN QUE HUYE
-        const noBtn = document.getElementById("noBtn");
-        noBtn.addEventListener("mouseover", () => {
-            const x = Math.random() * (window.innerWidth - 150);
-            const y = Math.random() * (window.innerHeight - 150);
-            noBtn.style.left = x + "px";
-            noBtn.style.top = y + "px";
-        });
-
-        // CAMBIAR DE PANTALLA
-        function mostrarPantalla2() {
-            document.getElementById("pantalla1").classList.remove("activa");
-            document.getElementById("pantalla2").classList.add("activa");
+        /* CONTENEDOR DEL SPOTIFY EN PANTALLA 2 */
+        .spotify-wrapper {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
         }
-    </script>
 
-</body>
-</html>
+        .spotify-wrapper iframe {
+            max-width: 400px;
+        }
+    </style>
