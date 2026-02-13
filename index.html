@@ -53,6 +53,7 @@
             display: inline-block;
             border-radius: 50px;
             transition: transform 0.2s;
+            overflow: visible;
         }
 
         .btn::before,
@@ -89,10 +90,24 @@
             100% { transform: scale(1); }
         }
 
-        /* Botón No (huye) */
+        /* 🔵 BOTÓN NO EN AZUL OSCURO */
         .no {
-            background-color: #adb5bd;
+            background-color: #0a1a3a;
             position: relative;
+        }
+
+        /* 💞 PARTICULAS DE CORAZONES */
+        .corazon {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: flotar 1s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes flotar {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-40px) scale(1.5); }
         }
     </style>
 </head>
@@ -103,7 +118,7 @@
         <h1>¿Quieres volver a pasar este 14 de febrero conmigo? ❤️</h1>
 
         <div class="botones">
-            <button class="btn yes" onclick="mostrarPantalla2()">Sí</button>
+            <button class="btn yes" id="yesBtn" onclick="mostrarPantalla2()">Sí</button>
             <button class="btn no" id="noBtn">No</button>
         </div>
     </div>
@@ -130,7 +145,14 @@
             document.getElementById("pantalla1").classList.remove("activa");
             document.getElementById("pantalla2").classList.add("activa");
         }
-    </script>
 
-</body>
-</html>
+        // 💞 PARTICULAS DE CORAZONES EN LOS BOTONES
+        function crearCorazon(boton) {
+            const corazon = document.createElement("div");
+            corazon.classList.add("corazon");
+            corazon.innerHTML = "❤️";
+
+            const x = Math.random() * 40 - 20;
+            const y = Math.random() * 10;
+
+            corazon.style.left
