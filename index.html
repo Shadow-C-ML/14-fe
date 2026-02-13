@@ -17,13 +17,8 @@
             padding-top: 80px;
         }
 
-        .pantalla {
-            display: none;
-        }
-
-        .activa {
-            display: block;
-        }
+        .pantalla { display: none; }
+        .activa { display: block; }
 
         h1 {
             color: #d6336c;
@@ -32,7 +27,6 @@
             text-shadow: 2px 2px 4px white;
         }
 
-        /* CONTENEDOR DE BOTONES */
         .botones {
             width: 100%;
             height: 200px;
@@ -40,7 +34,6 @@
             margin-top: 40px;
         }
 
-        /* BOTONES EN FORMA DE CORAZÓN */
         .btn {
             padding: 20px 25px;
             font-size: 1.2rem;
@@ -65,30 +58,21 @@
             top: -15px;
         }
 
-        .btn::before {
-            left: -10px;
-            transform: rotate(-45deg);
-        }
+        .btn::before { left: -10px; transform: rotate(-45deg); }
+        .btn::after { right: -10px; transform: rotate(45deg); }
 
-        .btn::after {
-            right: -10px;
-            transform: rotate(45deg);
-        }
-
-        /* POSICIONES CORRECTAS */
         .yes {
-            left: 15%;   /* PRIMER TERCIO */
+            left: 15%;
             top: 50px;
             animation: latido 1s infinite;
         }
 
         .no {
-            left: 70%;   /* TERCER TERCIO */
+            left: 70%;
             top: 50px;
             background-color: #0a1a3a;
         }
 
-        /* ANIMACIÓN DEL BOTÓN SÍ */
         @keyframes latido {
             0% { transform: scale(1); }
             30% { transform: scale(1.15); }
@@ -97,7 +81,6 @@
             100% { transform: scale(1); }
         }
 
-        /* CONTENEDOR DEL SPOTIFY EN PANTALLA 2 */
         .spotify-wrapper {
             margin-top: 30px;
             display: flex;
@@ -108,3 +91,47 @@
             max-width: 400px;
         }
     </style>
+</head>
+<body>
+
+    <!-- PANTALLA 1 -->
+    <div id="pantalla1" class="pantalla activa">
+        <h1>¿Quieres volver a pasar este 14 de febrero conmigo? ❤️</h1>
+
+        <div class="botones">
+            <button class="btn yes" onclick="mostrarPantalla2()">Sí</button>
+            <button class="btn no" id="noBtn">No</button>
+        </div>
+    </div>
+
+    <!-- PANTALLA 2 -->
+    <div id="pantalla2" class="pantalla">
+        <h1>Espero que lo pasemos bien, sin que nada malo ocurra.<br>
+        Gracias por seguir aquí otro año más conmigo ❤️</h1>
+
+        <div class="spotify-wrapper">
+            <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/1p5MNDoAuCEi0aKBslZx2E?utm_source=generator"
+                width="100%" height="152" frameborder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        noBtn.addEventListener("mouseover", () => {
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 150);
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+
+        function mostrarPantalla2() {
+            document.getElementById("pantalla1").classList.remove("activa");
+            document.getElementById("pantalla2").classList.add("activa");
+        }
+    </script>
+
+</body>
+</html>
