@@ -32,19 +32,43 @@
             text-shadow: 2px 2px 4px white;
         }
 
+        /* ❤️ BOTONES EN FORMA DE CORAZÓN */
         .btn {
-            padding: 15px 30px;
-            margin: 20px;
+            padding: 20px 25px;
             font-size: 1.2rem;
             border: none;
-            border-radius: 10px;
             cursor: pointer;
+            color: white;
+            background-color: #ff4d6d;
+            position: relative;
+            display: inline-block;
+            border-radius: 50px;
+            transition: transform 0.2s;
         }
 
-        /* 💗 ANIMACIÓN DEL BOTÓN "SÍ" */
+        .btn::before,
+        .btn::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 40px;
+            background-color: inherit;
+            border-radius: 50px;
+            top: -15px;
+        }
+
+        .btn::before {
+            left: -10px;
+            transform: rotate(-45deg);
+        }
+
+        .btn::after {
+            right: -10px;
+            transform: rotate(45deg);
+        }
+
+        /* 💗 ANIMACIÓN DEL BOTÓN “SÍ” */
         .yes {
-            background-color: #ff4d6d;
-            color: white;
             animation: latido 1s infinite;
         }
 
@@ -56,9 +80,9 @@
             100% { transform: scale(1); }
         }
 
+        /* Botón No (huye) */
         .no {
             background-color: #adb5bd;
-            color: white;
             position: absolute;
         }
     </style>
