@@ -52,4 +52,26 @@
 
     <!-- PANTALLA 2 -->
     <div id="pantalla2" class="pantalla">
-        <h1>Espero que lo pasemos bien, sin que nada malo
+        <h1>Espero que lo pasemos bien, sin que nada malo ocurra.<br>
+        Gracias por seguir aquí otro año más conmigo ❤️</h1>
+    </div>
+
+    <script>
+        // Botón que huye
+        const noBtn = document.getElementById("noBtn");
+        noBtn.addEventListener("mouseover", () => {
+            const x = Math.random() * window.innerWidth * 0.8;
+            const y = Math.random() * window.innerHeight * 0.8;
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+
+        // Cambiar de pantalla
+        function mostrarPantalla2() {
+            document.getElementById("pantalla1").classList.remove("activa");
+            document.getElementById("pantalla2").classList.add("activa");
+        }
+    </script>
+
+</body>
+</html>
