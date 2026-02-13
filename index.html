@@ -32,16 +32,15 @@
             text-shadow: 2px 2px 4px white;
         }
 
-        /* ❤️ CONTENEDOR PARA SEPARAR LOS BOTONES */
+        /* CONTENEDOR DE BOTONES */
         .botones {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-            margin: 0 auto;
+            width: 100%;
+            height: 200px;
+            position: relative;
             margin-top: 40px;
         }
 
-        /* ❤️ BOTONES EN FORMA DE CORAZÓN */
+        /* BOTONES EN FORMA DE CORAZÓN */
         .btn {
             padding: 20px 25px;
             font-size: 1.2rem;
@@ -49,7 +48,7 @@
             cursor: pointer;
             color: white;
             background-color: #ff4d6d;
-            position: relative;
+            position: absolute;
             display: inline-block;
             border-radius: 50px;
             transition: transform 0.2s;
@@ -77,11 +76,18 @@
             transform: rotate(45deg);
         }
 
-        /* 💗 ANIMACIÓN DEL BOTÓN “SÍ” */
+        /* POSICIONES DE LOS BOTONES */
         .yes {
+            left: 20%;
             animation: latido 1s infinite;
         }
 
+        .no {
+            left: 70%;
+            background-color: #0a1a3a;
+        }
+
+        /* ANIMACIÓN DEL BOTÓN SÍ */
         @keyframes latido {
             0% { transform: scale(1); }
             30% { transform: scale(1.15); }
@@ -90,13 +96,7 @@
             100% { transform: scale(1); }
         }
 
-        /* 🔵 BOTÓN NO EN AZUL OSCURO */
-        .no {
-            background-color: #0a1a3a;
-            position: relative;
-        }
-
-        /* 💞 PARTICULAS DE CORAZONES */
+        /* PARTÍCULAS DE CORAZONES */
         .corazon {
             position: absolute;
             color: #ff4d6d;
@@ -130,29 +130,5 @@
     </div>
 
     <script>
-        // Botón que huye
+        // BOTÓN QUE HUYE
         const noBtn = document.getElementById("noBtn");
-        noBtn.addEventListener("mouseover", () => {
-            const x = Math.random() * window.innerWidth * 0.8;
-            const y = Math.random() * window.innerHeight * 0.8;
-            noBtn.style.position = "absolute";
-            noBtn.style.left = x + "px";
-            noBtn.style.top = y + "px";
-        });
-
-        // Cambiar de pantalla
-        function mostrarPantalla2() {
-            document.getElementById("pantalla1").classList.remove("activa");
-            document.getElementById("pantalla2").classList.add("activa");
-        }
-
-        // 💞 PARTICULAS DE CORAZONES EN LOS BOTONES
-        function crearCorazon(boton) {
-            const corazon = document.createElement("div");
-            corazon.classList.add("corazon");
-            corazon.innerHTML = "❤️";
-
-            const x = Math.random() * 40 - 20;
-            const y = Math.random() * 10;
-
-            corazon.style.left
