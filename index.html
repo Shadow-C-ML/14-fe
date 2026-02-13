@@ -34,11 +34,10 @@
 
         /* CONTENEDOR DE BOTONES */
         .botones {
-            display: flex;
-            justify-content: space-around;
             width: 100%;
-            margin-top: 40px;
+            height: 200px;
             position: relative;
+            margin-top: 40px;
         }
 
         /* BOTONES EN FORMA DE CORAZÓN */
@@ -49,7 +48,7 @@
             cursor: pointer;
             color: white;
             background-color: #ff4d6d;
-            position: relative;
+            position: absolute;
             display: inline-block;
             border-radius: 50px;
             transition: transform 0.2s;
@@ -76,23 +75,26 @@
             transform: rotate(45deg);
         }
 
-        /* ANIMACIÓN DEL BOTÓN SÍ */
+        /* POSICIONES CORRECTAS */
         .yes {
+            left: 15%;   /* PRIMER TERCIO */
+            top: 50px;
             animation: latido 1s infinite;
         }
 
+        .no {
+            left: 70%;   /* TERCER TERCIO */
+            top: 50px;
+            background-color: #0a1a3a;
+        }
+
+        /* ANIMACIÓN DEL BOTÓN SÍ */
         @keyframes latido {
             0% { transform: scale(1); }
             30% { transform: scale(1.15); }
             50% { transform: scale(1); }
             70% { transform: scale(1.15); }
             100% { transform: scale(1); }
-        }
-
-        /* BOTÓN NO EN AZUL OSCURO */
-        .no {
-            background-color: #0a1a3a;
-            position: absolute;
         }
     </style>
 </head>
